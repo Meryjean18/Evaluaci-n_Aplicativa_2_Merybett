@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DapperMerybettAvila.Models.Cliente_model>
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar Cliente</h2>
+<form action="Edit" method="post">
+    @foreach (var item in Model)
+    {
+        @*@Html.HiddenFor(@item.IdCliente)*@
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="form-label">Nro Documento</label>
+            <input type="text" class="form-control" id="NroDocumento" value="@item.NroDocumento" name="NroDocumento" aria-describedby="Documento">
+        </div>
+
+        <div class="form-group">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" value="@item.Nombre" name="Nombre" aria-describedby="Nombre">
+        </div>
+
+        <div class="form-group">
+            <label for="Direccion" class="form-label">Direccion</label>
+            <input type="text" class="form-control" id="Direccion" value="@item.Direccion" name="Direccion" aria-describedby="Direccion">
+        </div>
+
+        <div class="form-group">
+            <label for="Telefono" class="form-label">Telefono</label>
+            <input type="text" class="form-control" id="Telefono" value="@item.Telefono" name="Telefono" aria-describedby="Telefono">
+        </div>
+        <input name="IdCliente" value="@item.IdCliente" hidden />
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+
+
+    }
+</form>
+
+

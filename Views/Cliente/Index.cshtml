@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DapperMerybettAvila.Models.Cliente_model>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>CLIENTES</h2>
+@Html.ActionLink("Nuevo Cliente","crear")
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>N°DOCUMENTO</th>
+            <th>NOMBRE</th>
+            <th>DIRECCION</th>
+            <th>TELEFONO</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.ActionLink(item.NroDocumento, "editar", new { id = item.IdCliente })
+            </td>
+            <td>@item.Nombre</td>
+            <td>@item.Direccion</td>
+            <td>@item.Telefono</td>
+            <td>
+                @Html.ActionLink("Eliminar", "delete", new { id = item.IdCliente })
+            </td>
+        </tr>
+            }
+    </tbody>
+</table>
+
+
